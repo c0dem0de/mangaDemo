@@ -14,11 +14,8 @@ export default function MangaDetail() {
 
     const fetchDetails = async () => {
       try {
-        const res = await axios.get(`https://api.mangadex.org/manga/${id}`, {
-          params: {
-            includes: ["cover_art"],
-          },
-        });
+        // ✅ Use your own API route to avoid CORS
+        const res = await axios.get(`/api/manga/${id}`);
         setManga(res.data.data);
       } catch (error) {
         console.error("Failed to load manga details:", error.message);
